@@ -1,26 +1,48 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
+import { createMuiTheme } from '@material-ui/core/styles';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+
 import './App.css';
 
+import Splash from './components/splash';
+import Principal from './components/principal';
+import Header from './commons/header';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#ff0000',
+    },
+    secondary: {
+      main: '#00b0ff',
+    }
+  },
+});
+
 class App extends Component {
+  state = {
+    isLoading: true
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ isLoading: false })
+    }, 1000);   
+  }
+
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <MuiThemeProvider theme={theme}>
+        { this.state.isLoading && <Splash /> }
+        { !this.state.isLoading && 
+          <div>
+            <Header />
+            <Principal /> 
+          </div>
+        }
+      </MuiThemeProvider>
     );
   }
 }

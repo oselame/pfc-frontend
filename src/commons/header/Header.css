@@ -1,0 +1,10 @@
+.title {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+
+ .header {
+    padding: 0px 20px;
+    background-color: red;
+} 
