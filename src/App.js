@@ -10,6 +10,9 @@ import Principal from './components/principal';
 import Header from './commons/header';
 
 const theme = createMuiTheme({
+  typography: {
+    useNextVariants: true,
+  },
   palette: {
     primary: {
       main: '#ff0000',

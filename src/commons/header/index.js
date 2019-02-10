@@ -1,14 +1,16 @@
 import React from 'react';
 
- import AppBar from '@material-ui/core/AppBar';
+ import {AppBar, Toolbar, Typography } from '@material-ui/core';
 
  import './Header.css';
 
  const Header = () => (
     <AppBar position="static" color="primary">
-        <div className="header">
-            <p className="title">Pelada Futebol Clube</p>
-        </div>
+        <Toolbar>
+            <Typography variant="subtitle1" color="inherit">
+                Pelada Futebol Clube
+            </Typography>
+        </Toolbar>
     </AppBar>
 )
 
