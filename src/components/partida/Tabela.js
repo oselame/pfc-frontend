@@ -11,10 +11,10 @@ const styles = theme => ({
   root: {
     width: '100%',
     marginTop: theme.spacing.unit * 3,
-    overflowX: 'none',
+    overflowX: 'auto',
   },
   table: {
-    minWidth: 50,
+    // minWidth: 700,
   },
 });
 
@@ -36,7 +36,7 @@ const Tabela = (props) => {
   const { classes } = props;
 
   return (
-      <Table className={classes.table}>
+      <Table className={classes.table} >
         <TableHead>
           <TableRow>
             <TableCell>Nome</TableCell>
