@@ -7,7 +7,7 @@ import { Services as partidaServices } from '../services/partida';
 function* getPartidas() {
     try {        
         const result = yield call(partidaServices.getUltimaPartida);
-        console.log( result.data );
+        //console.log( result.data );
         
         yield put(partidaActions.getPartidaSuccess(result.data));
     } catch (e) {

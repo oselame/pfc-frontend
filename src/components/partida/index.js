@@ -13,6 +13,7 @@ import Resultado from './Resultado';
 
 import { Creators as PartidaActions } from '../../store/actions/partida';
 
+import bolaCheia from '../../bola-murcha.png';
 import bolaMurcha from '../../bola-murcha.png';
 
 const styles = theme => ({
@@ -21,11 +22,12 @@ const styles = theme => ({
   },
   paper: {
     padding: theme.spacing.unit * 2,
-    textAlign: 'center',
+    textAlign: 'left',
     color: theme.palette.text.secondary,
   },
   bolarMurcha: {
-    backgroundImage: `url(${bolaMurcha})`
+    backgroundImage: `url(${bolaMurcha})`,
+    
   }
 });
 
@@ -37,36 +39,36 @@ class Partida extends Component {
   }
 
   render() {
-    const { partida } = this.props;
+    const { classes, partida } = this.props;
     return (
-      <div className={styles.root}>
+      <div className={classes.root}>
         <Grid container spacing={16}>
           <Grid item xs={12} >
-            <Paper className={styles.paper}>
+            <Paper className={classes.paper}>
                 <Resultado data={ partida.dtPartida } placar={ partida.deResultado }  />
             </Paper>
           </Grid>
   
           <Grid item xs={6} >
-            <Paper className={styles.paper}>
+            <Paper className={classes.paper}>
               <Tabela times={ partida.sociostimea } time="Time A"/>
             </Paper>
           </Grid>
           <Grid item xs={6} >
-            <Paper className={styles.paper}>
+            <Paper className={classes.paper}>
               <Tabela times={ partida.sociostimeb }  time="Time B"/>
             </Paper>
           </Grid>
 
           <Grid item xs={6} >
-            <Paper className={styles.paper}>
+            <Paper className={classes.paper}>
               { renderHTML(partida.deBolacheia) }
             </Paper>
           </Grid>
 
           <Grid item xs={6} >
-            <Paper className={styles.paper}>              
-              <div className={styles.bolarMurcha} >
+            <Paper className={classes.paper}>              
+              <div className={classes.bolarMurcha} >
                 { renderHTML(partida.deBolamurcha) }
               </div>
             </Paper>
@@ -78,6 +80,7 @@ class Partida extends Component {
 }
 
 Partida.propTypes = {
+  partida: PropTypes.object.isRequired
 };
 
 
@@ -87,4 +90,4 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators(PartidaActions, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(Partida);
+export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(Partida));

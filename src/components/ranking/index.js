@@ -8,8 +8,6 @@ import Grid from '@material-ui/core/Grid';
 
 import { Creators as RankingActions } from '../../store/actions/ranking';
 
-import Tabela from './Tabela';
-import Quadrimetre from './Quadrimestre';
 import Ano from './Ano';
 
 const styles = theme => ({
@@ -22,6 +20,7 @@ const styles = theme => ({
     color: theme.palette.text.secondary,
   },
 });
+
 class Ranking extends Component {
 
   constructor(props) {
@@ -41,13 +40,13 @@ class Ranking extends Component {
                 <Ano />
             </Paper>
             <Paper className={classes.paper}>
-                <Quadrimetre />
+                
             </Paper>
           </Grid>
 
           <Grid item xs={12} >
             <Paper>
-                <Tabela socios={ this.props.ranking.socios } />
+                
             </Paper>
           </Grid>
         </Grid>

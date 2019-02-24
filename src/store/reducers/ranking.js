@@ -9,7 +9,7 @@ import { Types } from '../actions/ranking';
 }
 
 
- export default function partidas(state = INITIAL_STATE, action) {
+ export default function rankings(state = INITIAL_STATE, action) {
     switch (action.type) {
 
         case Types.GET_RANKING_REQUEST:

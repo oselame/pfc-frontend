@@ -5,17 +5,13 @@ import { withStyles } from '@material-ui/core/styles';
 const styles = () => ({
   placar: {
     display: 'flex',
-    justifyContent: 'space-evenly',
-    /*
-    flexDirection: 'row',
-    
-    flexWrap: 'wrap'*/
+    justifyContent: 'space-evenly'
   },
 
   title: {
-    /*fontSize: 14,
+    fontSize: 14,
     fontWeight: 'bold',
-    padding: 5*/
+    padding: 3
   }
   
 });
@@ -36,6 +32,8 @@ const Resultado = (props) => {
 }
 
 Resultado.propTypes = {
+  data: PropTypes.string.isRequired,
+  placar: PropTypes.string.isRequired
 }
 
 export default withStyles(styles)(Resultado);

@@ -33,7 +33,7 @@ const Tabela = (props) => {
           { 
             times.map(time => {
                 return (
-                  <TableRow>
+                  <TableRow key={time.cdSocio}>
                     <TableCell component="th" scope="row">
                       { time.nmApelido }
                     </TableCell>
