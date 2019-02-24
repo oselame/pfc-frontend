@@ -19,7 +19,7 @@ const styles = (theme) => ({
     flexGrow: 1,
     width: '100%',
     backgroundColor: theme.palette.background.paper,
-    height: 40,
+    height: 80,
   },
   links: {
     paddingRight: 10
@@ -41,7 +41,7 @@ const styles = (theme) => ({
                         </Typography>
                     </Toolbar>
                 </AppBar>    
-                <Paper className={classes.root} elevation={2}>
+                <Paper className={classes.root} elevation={4}>
                     <Typography variant="button" component="h3" className={classes.links}>
                         <Link to='/ultimapartida'>Última Partida</Link>
                     </Typography>

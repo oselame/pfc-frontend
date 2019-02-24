@@ -1,18 +1,20 @@
 export const Types = {
-    LIST_PARTIDA_SUCCESS: 'LIST_PARTIDA_SUCCESS',
-    LIST_PARTIDA_FAILURE: 'LIST_PARTIDA_FAILURE',
+    GET_PARTIDA_REQUEST: 'partida/get_partida_request',
+    GET_PARTIDA_SUCCESS: 'partida/get_partida_success',
 
 }
 
 export const Creators = {
 
-    listPartidaSuccess: (partida) => ({
-        type: Types.LIST_PARTIDA_SUCCESS,
-        partida
+    getPartidaRequest: () => ({
+        type: Types.GET_PARTIDA_REQUEST
     }),
-    listPartidaFailure: (partida) => ({
-        type: Types.LIST_PARTIDA_FAILURE,
-        partida
+
+    getPartidaSuccess: (partida) => ({
+        type: Types.GET_PARTIDA_SUCCESS,
+        payload: {
+            partida
+        }
     })
 
 } 

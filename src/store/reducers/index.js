@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 
-import partida from './partida';
+import partidaReducer from './partida';
+import rankingReducer from './ranking';
 
  export default combineReducers({
-    partida
+    partidaReducer,
+    rankingReducer
 });

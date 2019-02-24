@@ -18,47 +18,38 @@ const styles = theme => ({
   },
 });
 
-let id = 0;
-function createData(name, points) {
-  id += 1;
-  return { name, points };
-}
-
-const rows = [
-  createData('Frozen yoghurt', 159),
-  createData('Ice cream sandwich', 237),
-  createData('Eclair', 262),
-  createData('Cupcake', 305),
-  createData('Gingerbread', 356),
-];
-
 const Tabela = (props) => {
-  const { classes } = props;
-
+  const { classes, time, times } = props;
+  
   return (
       <Table className={classes.table} >
         <TableHead>
           <TableRow>
-            <TableCell>Nome</TableCell>
+            <TableCell>{ time }</TableCell>
             <TableCell align="right">Gols</TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
-          {rows.map(row => (
-            <TableRow key={row.name}>
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{row.points}</TableCell>
-            </TableRow>
-          ))}
+        <TableBody>  
+          { 
+            times.map(time => {
+                return (
+                  <TableRow>
+                    <TableCell component="th" scope="row">
+                      { time.nmApelido }
+                    </TableCell>
+                    <TableCell align="right">{ time.nuGol }</TableCell>
+                  </TableRow>          
+                )
+              }
+            )
+          }        
         </TableBody>
       </Table>
   );
 }
 
 Tabela.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(Tabela);

@@ -1,22 +1,24 @@
 import { Types } from '../actions/partida';
 
  const INITIAL_STATE = {
-     partida: {}
+     partida: {
+         dtPartida: '',
+         deResultado: '',
+         deBolamurcha: '',
+         deBolacheia: '',
+         sociostimea: [],
+         sociostimeb: []
+     }
 }
 
 
- export default function lista(state = INITIAL_STATE, action) {
+ export default function partidas(state = INITIAL_STATE, action) {
     switch (action.type) {
-        case Types.LIST_PARTIDA_SUCCESS:
+        case Types.GET_PARTIDA_SUCCESS:
             return {
-                ...INITIAL_STATE,
-                partida: action.partida
+                partida: action.payload.partida
             };
-        case Types.LIST_PARTIDA_FAILURE:
-            return {
-                ...INITIAL_STATE,
-                partida: action.partida
-            };
+       
 
          default:
             return state;

@@ -1,10 +1,12 @@
-import { takeLatest, all } from 'redux-saga/effects';
+import { all } from 'redux-saga/effects';
 
-import { Types as PartidaTypes } from '../actions/partida';
-import { getPartidaRequest } from './partida';
+import PartidaSagas  from './partida';
+import RankingSagas from './ranking';
+
 
 export default function* rootSaga() {
     return yield all([
-        takeLatest(PartidaTypes.LIST_PARTIDA_SUCCESS, getPartidaRequest)
+        ...PartidaSagas,
+        ...RankingSagas
     ])
 }

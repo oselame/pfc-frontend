@@ -21,23 +21,21 @@ const styles = () => ({
 });
 
 const Resultado = (props) => {
-  const { classes } = props;
+  const { classes, data, placar } = props;
 
   return (
     <div className={ classes.placar }>
         <div>
-            <span className={ classes.title }>Data:</span> { props.data }
+            <span className={ classes.title }>Data:</span> { data }
         </div>
         <div>
-            <span className={ classes.title }>Placar:</span>{ props.placar }
+            <span className={ classes.title }>Placar:</span>{ placar }
         </div>
     </div>
   )
 }
 
 Resultado.propTypes = {
-  data: PropTypes.string.isRequired,
-  placar: PropTypes.string.isRequired
 }
 
 export default withStyles(styles)(Resultado);
