@@ -34,8 +34,17 @@ class Ano extends Component {
   }
 
   handleChange = event => {
-    // this.setState({ [event.target.name]: event.target.value });
+    this.setState({ [event.target.name]: event.target.value });
   };
+
+  getItemsList = (years) => {
+    console.log("xxxxx", !!years && years.length > 0);
+    if (!!years && years.length > 0) {
+      years.map(year => (
+          <MenuItem key={year.nuAno} value={year.nuAno}>{year.nuAno}</MenuItem>
+      ))
+    }
+  }
 
   render() {
     const { classes, years } = this.props;
@@ -48,7 +57,12 @@ class Ano extends Component {
             value={this.state.nuAno}
             onChange={this.handleChange}
             name="nuAno">
-              
+              {
+                !!years && years.length > 0 &&
+                  years.map(year => (
+                      <MenuItem key={year.nuAno} value={year.nuAno}>{year.nuAno}</MenuItem>
+                  ))
+              }
             }
           </Select>
         </div>
